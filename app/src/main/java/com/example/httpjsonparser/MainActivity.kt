@@ -1,16 +1,11 @@
 package com.example.httpjsonparser
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
-import android.util.Log
 import android.view.View
 import androidx.core.text.HtmlCompat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.InputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchWithVolley() {
-        val user = jsonParserApp.apiManager.getUser { user ->
+        jsonParserApp.apiManager.getUser { user ->
             tvUsername.visibility = View.VISIBLE
             tvUsername.text = HtmlCompat.fromHtml("Let's take a look at <b>${user.username}</b>", HtmlCompat.FROM_HTML_MODE_LEGACY)
             imgUser.visibility = View.VISIBLE
